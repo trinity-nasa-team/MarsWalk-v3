@@ -15,7 +15,7 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 from marsmap.api.deps import ApiError, LruCache
 from marsmap.api.ratelimit import RateLimiter
 from marsmap.api.registry import Registry
-from marsmap.api.routers import eva, habitat, mars, missions, regions, routes, sites
+from marsmap.api.routers import assistant, eva, habitat, mars, missions, regions, routes, sites
 from marsmap.api.settings import Settings
 from marsmap.data.mars_pois import http_get
 from marsmap.data.space_weather import SpaceWeather
@@ -49,6 +49,12 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         SpaceWeather()
     )  # DONKI con caché de 1 h; las pruebas sustituyen su `fetch`
     app.state.llm_chat = habitat.groq_chat  # idem: la IA del hábitat se finge en pruebas
+    app.state.llm_json = (
+        assistant.groq_json_chat
+    )  # asistente de voz: LLM en modo JSON (se finge en pruebas)
+    app.state.llm_transcribe = (
+        assistant.groq_translate
+    )  # asistente de voz: Whisper → inglés (se finge en pruebas)
     app.state.site_dem = GLOBAL_DEM  # idem: DEM local sintético en pruebas
 
     # Respuestas grandes (terrain-grid.f32 ~4.3 MB) bajo el límite de 4.5 MB de las funciones de Vercel.
@@ -93,6 +99,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.include_router(mars.router, prefix="/api")
     app.include_router(sites.router, prefix="/api")
     app.include_router(habitat.router, prefix="/api")
+    app.include_router(assistant.router, prefix="/api")
 
     if settings.frontend_dist and settings.frontend_dist.is_dir():
         app.mount("/", StaticFiles(directory=settings.frontend_dist, html=True), name="frontend")
