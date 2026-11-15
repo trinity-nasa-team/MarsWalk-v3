@@ -41,7 +41,7 @@ MAX_AUDIO_B64 = 2_000_000  # ~1.5 MB de audio: de sobra para ~10 s de voz en web
 RobotCmd = Literal["forward", "backward", "left", "right", "stop"]
 
 SYSTEM_PROMPT = (
-    "You are MARS, the voice assistant on the MarsWalk astronaut HUD (NASA Space Apps demo). "
+    "You are MARS, the voice assistant on the ANDAR astronaut HUD (NASA Space Apps demo). "
     "The user speaks Spanish or English; the text may come from speech recognition and contain small errors.\n"
     "There is a small physical scout rover (a real robot on Earth) that can only do 5 short moves: "
     "forward, backward, left (turn left in place), right (turn right in place), stop. Each move is a short pulse.\n\n"

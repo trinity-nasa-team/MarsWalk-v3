@@ -39,7 +39,7 @@ def test_chat_sends_prompt_and_telemetry(data_dir):
     assert r.json() == {"reply": "Autorizado. Continúa por la ruta.", "model": "m"}
     m = calls[0]["messages"]
     assert calls[0]["key"] == "test-key"
-    assert m[0]["role"] == "system" and "Marswalk" in m[0]["content"]
+    assert m[0]["role"] == "system" and "ANDAR" in m[0]["content"]
     assert "oxígeno: 36 %" in m[1]["content"] and "Responde en inglés" in m[1]["content"]
     assert [x["role"] for x in m[2:]] == ["user", "assistant", "user"]
     assert m[-1]["content"] == "¿Puedo continuar?"
