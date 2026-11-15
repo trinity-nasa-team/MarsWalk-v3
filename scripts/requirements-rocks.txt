@@ -1,0 +1,11 @@
+# Dependencias OPCIONALES del servicio de rocas (scripts/rock_service.py). No son del backend principal.
+# Necesita GPU NVIDIA para un ritmo útil (≈1–2 s por cuadro en modo rápido). La primera vez baja ~3.5 GB de Hugging Face.
+torch
+torchvision
+transformers>=4.40
+onnxruntime
+opencv-python
+pillow
+numpy
+fastapi
+uvicorn
