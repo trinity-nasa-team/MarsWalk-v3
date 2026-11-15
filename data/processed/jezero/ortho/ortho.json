@@ -1,0 +1,212 @@
+{
+ "region_id": "jezero",
+ "crs": "+proj=longlat +R=3396190 +no_defs +type=crs",
+ "source": "NASA Mars Trek WMTS (trek.nasa.gov) · USGS Astrogeology",
+ "overview": {
+  "file": "overview.webp",
+  "bbox": [
+   76.9999123,
+   17.999897,
+   78.0000114,
+   18.9000893
+  ]
+ },
+ "layers": [
+  {
+   "layer_id": "ortho_ctx",
+   "name": "Imagen real CTX",
+   "source_dataset": "MRO CTX, Jezero Mosaic, Preliminary",
+   "trek_layer": "Jezero_CTX_BlockAdj_dd",
+   "mission": "Mars Reconnaissance Orbiter",
+   "instrument": "CTX",
+   "native_resolution": "~6 m/px",
+   "resolution_m": 10.18,
+   "zoom": 12,
+   "bbox": [
+    76.9999123,
+    17.999897,
+    78.0000114,
+    18.9000893
+   ],
+   "product_date": "2020-08-03",
+   "retrieved_at": "2026-11-15T07:07:18Z",
+   "color": "Aproximado: crominancia de Viking VIS, Global Color Mosaic (MDIM 2.1) (232 m/px (servido hasta z = 7, ~330 m/px)) por pansharpening.",
+   "limitations": "Imagen visible ortorrectificada; mosaico de tomas con iluminación y fechas distintas (puede haber costuras de brillo). El color NO es de este instrumento: viene de Viking a baja resolución y es aproximado.",
+   "chunks": [
+    {
+     "id": "ctx_0_0",
+     "file": "ctx_0_0.webp",
+     "bbox": [
+      76.99991226196289,
+      18.548526763916016,
+      77.35147476196289,
+      18.900089263916016
+     ]
+    },
+    {
+     "id": "ctx_0_1",
+     "file": "ctx_0_1.webp",
+     "bbox": [
+      77.35147476196289,
+      18.548526763916016,
+      77.70303726196289,
+      18.900089263916016
+     ]
+    },
+    {
+     "id": "ctx_0_2",
+     "file": "ctx_0_2.webp",
+     "bbox": [
+      77.70303726196289,
+      18.548526763916016,
+      78.0000114440918,
+      18.900089263916016
+     ]
+    },
+    {
+     "id": "ctx_1_0",
+     "file": "ctx_1_0.webp",
+     "bbox": [
+      76.99991226196289,
+      18.196964263916016,
+      77.35147476196289,
+      18.548526763916016
+     ]
+    },
+    {
+     "id": "ctx_1_1",
+     "file": "ctx_1_1.webp",
+     "bbox": [
+      77.35147476196289,
+      18.196964263916016,
+      77.70303726196289,
+      18.548526763916016
+     ]
+    },
+    {
+     "id": "ctx_1_2",
+     "file": "ctx_1_2.webp",
+     "bbox": [
+      77.70303726196289,
+      18.196964263916016,
+      78.0000114440918,
+      18.548526763916016
+     ]
+    },
+    {
+     "id": "ctx_2_0",
+     "file": "ctx_2_0.webp",
+     "bbox": [
+      76.99991226196289,
+      17.999897003173828,
+      77.35147476196289,
+      18.196964263916016
+     ]
+    },
+    {
+     "id": "ctx_2_1",
+     "file": "ctx_2_1.webp",
+     "bbox": [
+      77.35147476196289,
+      17.999897003173828,
+      77.70303726196289,
+      18.196964263916016
+     ]
+    },
+    {
+     "id": "ctx_2_2",
+     "file": "ctx_2_2.webp",
+     "bbox": [
+      77.70303726196289,
+      17.999897003173828,
+      78.0000114440918,
+      18.196964263916016
+     ]
+    }
+   ]
+  },
+  {
+   "layer_id": "ortho_hirise",
+   "name": "Imagen real HiRISE (ventana)",
+   "source_dataset": "MRO HiRISE, Jezero Mosaic, Controlled (USGS, Mars 2020 TRN)",
+   "trek_layer": "JEZ_hirise_soc_006_orthoMosaic_25cm_Eqc_latTs0_lon0_first_dd",
+   "mission": "Mars Reconnaissance Orbiter",
+   "instrument": "HiRISE",
+   "native_resolution": "25 cm/px",
+   "resolution_m": 1.27,
+   "zoom": 15,
+   "bbox": [
+    77.4064064,
+    18.4024429,
+    77.4953485,
+    18.4868145
+   ],
+   "product_date": "2020-08-03",
+   "retrieved_at": "2026-11-15T07:07:18Z",
+   "color": "Aproximado: crominancia de Viking VIS, Global Color Mosaic (MDIM 2.1) (232 m/px (servido hasta z = 7, ~330 m/px)) por pansharpening.",
+   "limitations": "Imagen visible ortorrectificada; mosaico de tomas con iluminación y fechas distintas (puede haber costuras de brillo). El color NO es de este instrumento: viene de Viking a baja resolución y es aproximado.",
+   "chunks": [
+    {
+     "id": "hirise_0_0",
+     "file": "hirise_0_0.webp",
+     "bbox": [
+      77.40640640258789,
+      18.442869186401367,
+      77.45035171508789,
+      18.486814498901367
+     ]
+    },
+    {
+     "id": "hirise_0_1",
+     "file": "hirise_0_1.webp",
+     "bbox": [
+      77.45035171508789,
+      18.442869186401367,
+      77.49429702758789,
+      18.486814498901367
+     ]
+    },
+    {
+     "id": "hirise_0_2",
+     "file": "hirise_0_2.webp",
+     "bbox": [
+      77.49429702758789,
+      18.442869186401367,
+      77.49534845352173,
+      18.486814498901367
+     ]
+    },
+    {
+     "id": "hirise_1_0",
+     "file": "hirise_1_0.webp",
+     "bbox": [
+      77.40640640258789,
+      18.402442932128906,
+      77.45035171508789,
+      18.442869186401367
+     ]
+    },
+    {
+     "id": "hirise_1_1",
+     "file": "hirise_1_1.webp",
+     "bbox": [
+      77.45035171508789,
+      18.402442932128906,
+      77.49429702758789,
+      18.442869186401367
+     ]
+    },
+    {
+     "id": "hirise_1_2",
+     "file": "hirise_1_2.webp",
+     "bbox": [
+      77.49429702758789,
+      18.402442932128906,
+      77.49534845352173,
+      18.442869186401367
+     ]
+    }
+   ]
+  }
+ ]
+}

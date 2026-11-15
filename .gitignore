@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Node
+node_modules/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Datos pesados
+data/raw/
+data/processed/**/*.tif
+# Capas reales de Jezero (CTX 20 m -> 30 m, ~12 MB): se versionan para que la API funcione en Vercel
+!data/processed/jezero/*.tif
+!data/processed/**/.gitkeep
+
+# Modelos
+models/*.pt
+models/*.pth
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# 016: sitios creados al vuelo por /api/sites (caché local, se regeneran)
+data/processed/site_*/
+
+# Librerías del sistema copiadas en el build de Vercel (server.py)
+vendor_libs/
+
+# Restos locales del frontend (ahora en MarsWalk-web)
+marswalk/
+frontend/

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "api": {
+      "root": "./",
+      "framework": "fastapi",
+      "entrypoint": "server:app",
+      "functions": {
+        "server.py": {
+          "maxDuration": 60,
+          "excludeFiles": "{notebooks,docs,spec,tests,scripts,.agents,.claude,planificador/salida,planificador/tests,planificador/herramientas}/**"
+        }
+      },
+      "buildCommand": "mkdir -p vendor_libs && (cp -L /usr/lib64/libexpat.so.1 vendor_libs/ || cp -L /lib64/libexpat.so.1 vendor_libs/ || cp -L /usr/lib/x86_64-linux-gnu/libexpat.so.1 vendor_libs/) && ls -la vendor_libs"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": {
+        "service": "api"
+      }
+    }
+  ]
+}

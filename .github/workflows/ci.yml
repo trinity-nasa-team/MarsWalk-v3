@@ -1,0 +1,55 @@
+# CI de MarsWalk-v3: corre en cada push a main, en cada PR y a mano (Actions → CI → Run workflow).
+# Diseñado para evitar dos fallas conocidas:
+#   - gitleaks-action@v2 exige GITLEAKS_LICENSE en repos de organización → aquí se usa el CLI (sin licencia);
+#   - Semgrep se agotaba en código de terceros (marswalk/public/draco) → aquí solo se escanea nuestro código.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  calidad:
+    name: Lint y tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -e ".[dev]"
+      - name: Lint
+        run: ruff check . && ruff format --check .
+      - name: Tests (los de DEM real se omiten: data/raw no se versiona)
+        run: pytest -q -p no:warnings
+
+  secretos:
+    name: Secretos (Gitleaks CLI)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Gitleaks sobre todo el historial
+        run: |
+          docker run --rm -v "$PWD:/repo" ghcr.io/gitleaks/gitleaks:v8.24.3 \
+            git /repo --redact --verbose --exit-code 1
+
+  sast:
+    name: Código vulnerable (Semgrep)
+    runs-on: ubuntu-latest
+    container:
+      image: semgrep/semgrep
+    steps:
+      - uses: actions/checkout@v4
+      - run: semgrep scan --config p/python --config p/secrets --error --exclude planificador --exclude notebooks --exclude marswalk src scripts server.py
