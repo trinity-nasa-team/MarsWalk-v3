@@ -40,7 +40,7 @@ markers = ["slow: tests de rendimiento o calidad que tardan más de unos segundo
 line-length = 100
 target-version = "py311"
 src = ["src", "tests"]
-extend-exclude = ["notebooks", "planificador"]  # notebook de demo; planificador es subtree y se lintea en su repo de origen
+extend-exclude = ["notebooks", "planificador", "scripts/rocas_marte"]  # notebook de demo; planificador es subtree y se lintea en su repo de origen; rocas_marte es el pipeline de rocas (script de investigación)
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP", "S"]
